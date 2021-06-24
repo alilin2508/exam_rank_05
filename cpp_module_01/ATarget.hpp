@@ -6,13 +6,15 @@
 /*   By: alilin <alilin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:35:39 by alilin            #+#    #+#             */
-/*   Updated: 2021/06/23 14:41:49 by alilin           ###   ########.fr       */
+/*   Updated: 2021/06/23 16:18:03 by alilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ATARGET_HPP
 # define ATARGET_HPP
 #include "ASpell.hpp"
+#include <string>
+#include <iostream>
 
 class ASpell;
 
@@ -28,9 +30,9 @@ public:
 
 	std::string getType() const;
 	virtual ATarget *clone() const = 0;
-	void getHitBySpell(const ASpell &spell);
+	void getHitBySpell(const ASpell &spell) const;
 
-private:
+protected:
 
 	std::string type;
 };

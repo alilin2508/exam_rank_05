@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fwoosh.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alilin <alilin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 15:30:40 by alilin            #+#    #+#             */
-/*   Updated: 2021/06/23 16:17:17 by alilin           ###   ########.fr       */
+/*   Created: 2021/06/23 16:06:57 by alilin            #+#    #+#             */
+/*   Updated: 2021/06/23 16:12:13 by alilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FWOOSH_HPP
-# define FWOOSH_HPP
-#include "ASpell.hpp"
+#include "Warlock.hpp"
+#include "Fwoosh.hpp"
+#include "Dummy.hpp"
 
-class Fwoosh : public ASpell
+int main()
 {
-public:
+  Warlock richard("Richard", "the Titled");
 
-	Fwoosh();
-	Fwoosh(const std::string &name, const std::string &effects);
-	Fwoosh(const Fwoosh &other);
-	Fwoosh &operator=(const Fwoosh &other);
-	virtual ~Fwoosh();
+  Dummy bob;
+  Fwoosh* fwoosh = new Fwoosh();
 
-	Fwoosh *clone() const;
+  richard.learnSpell(fwoosh);
 
-private:
+  richard.introduce();
+  richard.launchSpell("Fwoosh", bob);
 
-};
-
-#endif
+  richard.forgetSpell("Fwoosh");
+  richard.launchSpell("Fwoosh", bob);
+}

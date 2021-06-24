@@ -6,7 +6,7 @@
 /*   By: alilin <alilin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 13:50:23 by alilin            #+#    #+#             */
-/*   Updated: 2021/06/23 14:18:21 by alilin           ###   ########.fr       */
+/*   Updated: 2021/06/23 16:19:17 by alilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define WARLOCK_HPP
 #include <iostream>
 #include <string>
+#include "ASpell.hpp"
+#include "ATarget.hpp"
+#include <list>
 
 class Warlock
 {
@@ -26,14 +29,19 @@ public:
 	const std::string &getTitle() const;
 	void setTitle(const std::string &title);
 	void introduce() const;
+	void learnSpell(ASpell *aspell);
+	void forgetSpell(std::string spellName);
+	void launchSpell(std::string spellName, ATarget &target);
 
 private:
 
 	Warlock();
 	Warlock(const Warlock &other);
+	bool isSpell(std::string spellName);
 	Warlock &operator=(const Warlock &other);
 	std::string name;
 	std::string title;
+	std::list<ASpell *> spell;
 };
 
 #endif

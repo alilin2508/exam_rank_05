@@ -6,18 +6,18 @@
 /*   By: alilin <alilin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:25:53 by alilin            #+#    #+#             */
-/*   Updated: 2021/06/23 14:40:21 by alilin           ###   ########.fr       */
+/*   Updated: 2021/06/23 16:15:03 by alilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ATarget.hpp"
 
 ATarget::ATarget():
-	type(NULL)
+	type()
 {
 }
 
-ASprll::ATarget(const std::string &type):
+ATarget::ATarget(const std::string &type):
 	type(type)
 {
 }
@@ -36,7 +36,12 @@ ATarget::~ATarget()
 {
 }
 
-std::string getType() const
+std::string ATarget::getType() const
 {
 	return (this->type);
+}
+
+void ATarget::getHitBySpell(const ASpell &spell) const
+{
+	std::cout << this->type <<  " has been " << spell.getEffects() << "!" << std::endl;
 }
